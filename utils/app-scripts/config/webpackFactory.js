@@ -29,8 +29,8 @@ function webpackFactory({ host, port } = {}) {
   const publicUrl = isProduction
     ? `${PUBLIC_BASE_URL}/${publicPath}/`
     : `http://${host}:${port}/`;
-  const publicHtml = fs.existsSync(paths.indexHtml)
-    ? paths.indexHtml
+  const publicHtml = fs.existsSync(paths.appHtml)
+    ? paths.appHtml
     : paths.localHtml;
 
   const clientEnv = Object.entries(env).reduce(
