@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`to match snapshot 1`] = `
+<div
+  className="font-weight-light text-muted"
+>
+  and 13 minutes
+</div>
+`;

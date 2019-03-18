@@ -44,20 +44,6 @@ global.fetch = (url, options) => {
   return Promise.reject(new Error(message));
 };
 
-// beforeEach(() => {
-//   // Mock any real fetch request. This will prompt the dev to make
-//   // sure actual requests are properly handled.
-//   const fetch = td.replace(global, 'fetch');
-//
-//   td.when(fetch(td.matchers.anything(), td.matchers.anything()), {
-//     ignoreExtraArgs: true,
-//   }).thenDo((uri, options) => {
-//     // eslint-disable-next-line no-console
-//     console.error(message);
-//     throw new Error(message);
-//   });
-// });
-
 afterEach(() => {
   td.reset();
 });

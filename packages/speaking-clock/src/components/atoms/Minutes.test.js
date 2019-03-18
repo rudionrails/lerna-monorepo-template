@@ -4,29 +4,17 @@ import React from "react";
 import Minutes from "./Minutes";
 
 const props = {
-  t: val => val,
   minutes: 13,
 };
 
-test("to translate minutes", () => {
-  const t = td.replace(props, "t");
-
-  td.when(t(props.minutes)).thenReturn("thirteen");
-  td.when(t("and {{minutes}} minutes", { minutes: "thirteen" })).thenReturn(
-    "and mocked thirteen minutes"
-  );
-
+test("to render minutes", () => {
   const subject = shallow(<Minutes {...props} />);
-  expect(subject.html()).toContain("and mocked thirteen minutes");
+  expect(subject.html()).toContain("and 13 minutes");
 });
 
-test("to translate when minutes are zero", () => {
-  const t = td.replace(props, "t");
-
-  td.when(t("o' clock")).thenReturn("just full hour");
-
+test("to render when minutes are zero", () => {
   const subject = shallow(<Minutes {...props} minutes={0} />);
-  expect(subject.html()).toContain("just full hour");
+  expect(subject.html()).toContain("o&#x27; clock");
 });
 
 test("to match snapshot", () => {

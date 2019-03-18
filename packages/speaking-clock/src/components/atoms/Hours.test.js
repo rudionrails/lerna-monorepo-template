@@ -4,30 +4,18 @@ import React from "react";
 import Hours from "./Hours";
 
 const props = {
-  t: val => val,
   hours: 13,
   minutes: 13,
 };
 
-test("to translate hours", () => {
-  const t = td.replace(props, "t");
-
-  td.when(t(props.hours)).thenReturn("thirteen");
-  td.when(t("{{hours}} hours", { hours: "thirteen" })).thenReturn(
-    "mocked thirteen hours"
-  );
-
+test("to render hours", () => {
   const subject = shallow(<Hours {...props} />);
-  expect(subject.html()).toContain("mocked thirteen hours");
+  expect(subject.html()).toContain("13 hours");
 });
 
-test("to translate hours when minutes are zero", () => {
-  const t = td.replace(props, "t");
-
-  td.when(t(props.hours)).thenReturn("just the number");
-
+test("to render hours when minutes are zero", () => {
   const subject = shallow(<Hours {...props} minutes={0} />);
-  expect(subject.html()).toContain("just the number");
+  expect(subject.html()).toContain("13");
 });
 
 test("to match snapshot", () => {

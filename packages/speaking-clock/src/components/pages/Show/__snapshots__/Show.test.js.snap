@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`to match snapshot 1`] = `
+<div
+  className="text-center"
+>
+  <div
+    className="small text-muted"
+  >
+    the time is
+  </div>
+  <Hours
+    hours={10}
+    minutes={13}
+  />
+  <Minutes
+    minutes={13}
+  />
+</div>
+`;
