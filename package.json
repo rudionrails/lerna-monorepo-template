@@ -6,7 +6,8 @@
     "utils/*"
   ],
   "scripts": {
-    "lint": "lerna run lint --concurrency 1 --no-bail --stream"
+    "build": "lerna run build --no-bail --stream --concurrency 1 -- --clean",
+    "lint": "lerna run lint --no-bail --stream --concurrency 1"
   },
   "devDependencies": {
     "lerna": "^3.13.1"

@@ -25,7 +25,7 @@ const isProduction = NODE_ENV === "production";
 const isDevelopment = NODE_ENV === "development";
 
 function webpackFactory({ host, port } = {}) {
-  const publicPath = `${env.APP_VERSION}/${env.APP_NAMESPACE}`;
+  const publicPath = env.APP_VERSION;
   const publicUrl = isProduction
     ? `${PUBLIC_BASE_URL}/${publicPath}/`
     : `http://${host}:${port}/`;
