@@ -1,0 +1,10 @@
+/*
+ * Widgets use CSS Modules to scope theyr styles
+ */
+.app :global(.material-icons) {
+  font-size: inherit;
+}
+
+.app {
+  min-height: 10rem;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <title>%APP_NAME%</title>
+
+    <!--
+      bootstrap and icons used for development. Those will not be provided
+      in the dist version. They are epected to be present in the main app shell.
+    -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css"
+    />
+
+    <script>
+      // get the language from the query string (default: en)
+      // and assign it to a global variable
+      (function() {
+        window.lng = (
+          new URLSearchParams(window.location.search).get("lng") || "en"
+        ).toLowerCase();
+      })();
+    </script>
+  </head>
+  <body>
+    <main role="main" class="container">
+      <div class="d-flex my-4">
+        <h3><i>%APP_NAME%</i> <small>Test Page</small></h3>
+
+        <div class="flex-grow-1 text-right">
+          <div class="dropdown">
+            <button
+              type="button"
+              class="btn btn-outline-info dropdown-toggle"
+              data-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Language (<script>document.write(window.lng.toUpperCase())</script>)
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <script>
+                (function() {
+                  // render language/locale dropdown
+                  Object.entries({
+                    en: "EN, English",
+                    de: "DE, Deutsch",
+                    fr: "FR, Français",
+                  }).forEach(([lng, label]) => {
+                    document.writeln(
+                      '<a class="dropdown-item" href="/?lng='+ lng +'">'+ label +'</a>'
+                    );
+                  });
+                })();
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 offset-sm-2">
+          <div class="card"><div id="widget"></div></div>
+        </div>
+      </div>
+
+      <hr />
+
+      <pre>
+        <code id="code" class="language-javascript">
+          // will be replaced with actual code
+        </code>
+      </pre>
+    </main>
+
+    <script id="script">
+      document.addEventListener("DOMContentLoaded", () => {
+        // those options are passed from the main app (shell)
+        const options = {
+          // the container to mount the widget to
+          container: document.querySelector('#widget'),
+          // the current language
+          lng: window.lng,
+        };
+
+        // %APP_NAME% is exposed via UMD and set by the library config in webpack
+        // @see https://github.com/umdjs/umd
+        window.widget = %APP_NAME%.create(options);
+      });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+
+    <script>
+      var script = document.querySelector("#script");
+      var code = document.querySelector("#code");
+
+      code.innerHTML = script.innerHTML
+        .replace("window.lng", '"'+ window.lng +'"');
+
+      Prism.highlightAll();
+    </script>
+  </body>
+</html>
