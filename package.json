@@ -5,6 +5,9 @@
     "packages/*",
     "utils/*"
   ],
+  "scripts": {
+    "lint": "lerna run lint --concurrency 1 --no-bail --stream"
+  },
   "devDependencies": {
     "lerna": "^3.13.1"
   }

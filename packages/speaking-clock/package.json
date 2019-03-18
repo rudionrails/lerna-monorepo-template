@@ -9,6 +9,7 @@
     "react-dom": "16.8.1"
   },
   "scripts": {
-    "start": "app-scripts start"
+    "start": "app-scripts start",
+    "lint": "app-scripts lint"
   }
 }
