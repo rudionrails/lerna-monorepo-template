@@ -61,7 +61,7 @@ $ yarn test
 
 # lint the package
 $ yarn lint
-
+```
 
 ## Things to consider
 
