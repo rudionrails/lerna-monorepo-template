@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "name": "@utils/eslint-config",
+  "description": "ESLint configuration",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "babel-eslint": "10.0.x",
+    "eslint": "5.x",
+    "eslint-config-airbnb": "17.x",
+    "eslint-config-prettier": "4.0.0",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jest": "22.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-prettier": "3.x",
+    "eslint-plugin-react": "7.x",
+    "prettier": "1.16.4"
+  }
+}
