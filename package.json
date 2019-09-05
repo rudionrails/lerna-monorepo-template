@@ -13,6 +13,6 @@
     "validate": "lerna run lint && lerna run test && lerna run build"
   },
   "devDependencies": {
-    "lerna": "^3.13.1"
+    "lerna": "^3.16.4"
   }
 }

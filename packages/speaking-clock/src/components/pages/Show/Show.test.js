@@ -16,7 +16,7 @@ const date = {
 let subject;
 
 beforeEach(() => {
-  subject = shallow(<Show {...{ date }} />);
+  subject = shallow(<Show date={date} />);
 });
 
 test("to render Hours", () => {

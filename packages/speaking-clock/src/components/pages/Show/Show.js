@@ -12,8 +12,8 @@ const Show = ({ date }) => {
     <div className="text-center">
       <div className="small text-muted">the time is</div>
 
-      <Hours {...{ hours, minutes }} />
-      <Minutes {...{ minutes }} />
+      <Hours hours={hours} minutes={minutes} />
+      <Minutes minutes={minutes} />
     </div>
   );
 };

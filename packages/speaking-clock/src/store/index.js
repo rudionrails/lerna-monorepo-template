@@ -50,21 +50,14 @@ const StoreContext = React.createContext({});
 //      state => ({ hello: state.hello }),
 //    )(Hello);
 export const connect = mapStateToProps => WrappedComponent => props => (
+  /* eslint-disable react/jsx-props-no-spreading */
   <StoreContext.Consumer>
     {state => <WrappedComponent {...mapStateToProps(state)} {...props} />}
   </StoreContext.Consumer>
+  /* eslint-enable react/jsx-props-no-spreading */
 );
 
 export class StoreProvider extends React.Component {
-  // Thise are the only allowed props to pass
-  //
-  // In case you want additional stuff, think whether this
-  // should go into the `sttae` prop.
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    // lng: PropTypes.string.isRequired,
-  };
-
   constructor(props) {
     super(props);
 
@@ -91,3 +84,11 @@ export class StoreProvider extends React.Component {
     );
   }
 }
+
+// Thise are the only allowed props to pass
+//
+// In case you want additional stuff, think whether this
+// should go into the `state` prop.
+StoreProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
