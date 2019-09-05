@@ -7,8 +7,10 @@
   ],
   "scripts": {
     "build": "lerna run build --no-bail --stream --concurrency 1 -- --clean",
-    "lint": "lerna run lint --no-bail --stream --concurrency 1",
-    "test": "lerna run test --no-bail --stream --concurrency 1"
+    "lint": "lerna run lint --no-bail --stream",
+    "test": "lerna run test --no-bail --stream",
+    "test:ci": "lerna run test --stream --no-bail -- --ci",
+    "validate": "lerna run lint && lerna run test && lerna run build"
   },
   "devDependencies": {
     "lerna": "^3.13.1"
